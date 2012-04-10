@@ -2,7 +2,7 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.gmxteam.funkydomino.utils.xmlparser;
+package com.gmxteam.funkydomino.xmlencryptor;
 
 import java.io.BufferedReader;
 import java.io.IOException;
