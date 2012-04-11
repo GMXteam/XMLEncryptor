@@ -22,16 +22,19 @@ import java.io.InputStreamReader;
 import java.io.OutputStream;
 
 /**
- * Utilisé pour encrypter les fichiers XMLs.
+ * Utilisé pour encrypter les fichiers XMLs. Seulement la méthode write est
+ * recodée.
  *
  * @author guillaume
  */
 public class EncryptedOutputStream extends OutputStream {
 
     private final OutputStream stdout;
-    private final String privatekey;
+    private final char[] privatekey;
 
     /**
+     * Constructeur pour le flux encrypté. Il demande d'entrer la clé privée en
+     * entrée standard.
      *
      * @param resourceStream
      * @param publicKey
@@ -46,23 +49,71 @@ public class EncryptedOutputStream extends OutputStream {
             System.exit(0);
 
         }
-        privatekey = tempKey;
+        privatekey = tempKey.toCharArray();
+        tempKey = null;
         stdout = resourceStream;
 
     }
 
     /**
+     * Constructeur pour le flux encrypté. La clé privée est spécifier en input.
      *
      * @param resourceStream
      * @param publicKey
      */
     EncryptedOutputStream(OutputStream resourceStream, char[] privateKey) {
-        this.privatekey = new String(privateKey);
+        this.privatekey = privateKey;
         stdout = resourceStream;
     }
 
     @Override
     public void write(int oneByte) throws IOException {
-        stdout.write(oneByte);
+
+        stdout.write(encryptOneInteger(oneByte));
+
+    }
+
+    @Override
+    public void write(byte[] oneArrayByte) throws IOException {
+        for (int i = 0; i < oneArrayByte.length; i++) {
+            oneArrayByte[i] = encryptOneByte(oneArrayByte[i]);
+
+        }
+        stdout.write(oneArrayByte);
+
+
+    }
+
+    @Override
+    public void write(byte[] oneArrayByte, int i, int j) throws IOException {
+        // On convertit seulement les portions de l'array qui est spécifiée
+        for (int iCounter = i; iCounter < j; iCounter++) {
+            oneArrayByte[iCounter] = encryptOneByte(oneArrayByte[iCounter]);
+
+        }
+        stdout.write(oneArrayByte, i, j);
+
+
+    }
+
+    ////////////////////////////////////////////////////////////////////////////
+    // Méthodes pour l'encryptage.
+    /**
+     *
+     * @param b
+     * @return
+     */
+    private byte encryptOneByte(byte b) {
+
+        return b;
+    }
+
+    /**
+     *
+     * @param i
+     * @return
+     */
+    private int encryptOneInteger(int i) {
+        return i;
     }
 }
