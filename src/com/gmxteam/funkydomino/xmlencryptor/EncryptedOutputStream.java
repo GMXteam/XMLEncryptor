@@ -68,19 +68,16 @@ public class EncryptedOutputStream extends OutputStream {
 
     @Override
     public void write(int oneByte) throws IOException {
-
         stdout.write(encryptOneInteger(oneByte));
-
     }
 
     @Override
     public void write(byte[] oneArrayByte) throws IOException {
         for (int i = 0; i < oneArrayByte.length; i++) {
             oneArrayByte[i] = encryptOneByte(oneArrayByte[i]);
-
         }
         stdout.write(oneArrayByte);
-
+                System.out.println("used");
 
     }
 
@@ -89,11 +86,19 @@ public class EncryptedOutputStream extends OutputStream {
         // On convertit seulement les portions de l'array qui est spécifiée
         for (int iCounter = i; iCounter < j; iCounter++) {
             oneArrayByte[iCounter] = encryptOneByte(oneArrayByte[iCounter]);
-
         }
         stdout.write(oneArrayByte, i, j);
+        System.out.println("used offset");
+    }
 
-
+    @Override
+    public void close() throws IOException {
+        // On vide la clé et on ferme les flux.
+        for (char c : this.privatekey) {
+            c = 0;
+        }
+        stdout.close();
+        super.close();
     }
 
     ////////////////////////////////////////////////////////////////////////////
@@ -104,7 +109,6 @@ public class EncryptedOutputStream extends OutputStream {
      * @return
      */
     private byte encryptOneByte(byte b) {
-
         return b;
     }
 

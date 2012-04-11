@@ -45,34 +45,21 @@ public class FramedEncryptor extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jTextField1 = new javax.swing.JTextField();
-        jSlider1 = new javax.swing.JSlider();
-        jButton3 = new javax.swing.JButton();
-        jProgressBar1 = new javax.swing.JProgressBar();
         jPanel1 = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        btnEncrypter = new javax.swing.JButton();
+        btnQuitter = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jList1 = new javax.swing.JList();
-        jLabel1 = new javax.swing.JLabel();
-        jPasswordField1 = new javax.swing.JPasswordField();
-        jLabel2 = new javax.swing.JLabel();
-        jButton4 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
+        listeFichierAEncrypter = new javax.swing.JList();
+        lblFichierAEncrypter = new javax.swing.JLabel();
+        pwdClePrivee = new javax.swing.JPasswordField();
+        lblClePrivee = new javax.swing.JLabel();
+        btnVider = new javax.swing.JButton();
+        btnAjouter = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
-        jProgressBar2 = new javax.swing.JProgressBar();
-
-        jTextField1.setText("jTextField1");
-
-        jButton3.setText("Ajouter");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
-            }
-        });
+        progressBar = new javax.swing.JProgressBar();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Encrypteur de fichier XML pour Funky Domino");
+        setTitle("Encrypteur de fichier XML");
         setResizable(false);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -86,37 +73,37 @@ public class FramedEncryptor extends javax.swing.JFrame {
             .addGap(0, 0, Short.MAX_VALUE)
         );
 
-        jButton1.setText("Encrypter");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnEncrypter.setText("Encrypter");
+        btnEncrypter.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnEncrypterActionPerformed(evt);
             }
         });
 
-        jButton2.setText("Quitter");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        btnQuitter.setText("Quitter");
+        btnQuitter.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                btnQuitterActionPerformed(evt);
             }
         });
 
-        jScrollPane1.setViewportView(jList1);
+        jScrollPane1.setViewportView(listeFichierAEncrypter);
 
-        jLabel1.setText("Liste des fichiers à encrypter");
+        lblFichierAEncrypter.setText("Liste des fichiers à encrypter");
 
-        jLabel2.setText("Clé privée");
+        lblClePrivee.setText("Clé privée");
 
-        jButton4.setText("Vider");
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
+        btnVider.setText("Vider");
+        btnVider.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
+                btnViderActionPerformed(evt);
             }
         });
 
-        jButton5.setText("Ajouter");
-        jButton5.addActionListener(new java.awt.event.ActionListener() {
+        btnAjouter.setText("Ajouter");
+        btnAjouter.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton5ActionPerformed(evt);
+                btnAjouterActionPerformed(evt);
             }
         });
 
@@ -128,26 +115,26 @@ public class FramedEncryptor extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 243, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel1))
+                    .addComponent(lblFichierAEncrypter))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jButton5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnAjouter, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnVider, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(jProgressBar2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(progressBar, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(jLabel3)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(btnQuitter, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jButton1))
-                                    .addComponent(jPasswordField1))
-                                .addComponent(jLabel2)))
+                                        .addComponent(btnEncrypter))
+                                    .addComponent(pwdClePrivee))
+                                .addComponent(lblClePrivee)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)))
                 .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -158,25 +145,25 @@ public class FramedEncryptor extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel1)
+                        .addComponent(lblFichierAEncrypter)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 13, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jButton5)
-                                    .addComponent(jButton4))
+                                    .addComponent(btnAjouter)
+                                    .addComponent(btnVider))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jLabel3)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jLabel2)
+                                .addComponent(lblClePrivee)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(pwdClePrivee, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(6, 6, 6)
-                                .addComponent(jProgressBar2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(progressBar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jButton2)
-                                    .addComponent(jButton1)))
+                                    .addComponent(btnQuitter)
+                                    .addComponent(btnEncrypter)))
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 242, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap())
         );
@@ -184,43 +171,40 @@ public class FramedEncryptor extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void btnQuitterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnQuitterActionPerformed
         System.exit(0);
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_btnQuitterActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-    }//GEN-LAST:event_jButton3ActionPerformed
-
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void btnEncrypterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEncrypterActionPerformed
         if (this.filesSelection == null) {
             return;
         }
-        this.jProgressBar2.setValue(0);
-        double unitContribution = this.jProgressBar2.getMaximum() / filesSelection.length;
+        this.progressBar.setValue(0);
+        double unitContribution = this.progressBar.getMaximum() / filesSelection.length;
         double byUnitContribution = unitContribution / 10;
 
 
-        this.jButton1.setEnabled(false);
+        this.btnEncrypter.setEnabled(false);
         for (File f : filesSelection) {
             long startedTime = System.currentTimeMillis();
             System.out.println("Encryption de " + f + " en cours...");
             try {
                 // Lire et encrypter les fichiers ici...
                 FileInputStream fileIn = new FileInputStream(f);
-                this.jProgressBar2.setValue((int) (this.jProgressBar2.getValue() + byUnitContribution));
+                this.progressBar.setValue((int) (this.progressBar.getValue() + byUnitContribution));
 
                 File fileoutput = new File(f.getAbsolutePath() + ".enc");
                 fileoutput.createNewFile();
-                this.jProgressBar2.setValue((int) (this.jProgressBar2.getValue() + byUnitContribution));
+                this.progressBar.setValue((int) (this.progressBar.getValue() + byUnitContribution));
 
                 FileOutputStream fileOut = new FileOutputStream(fileoutput);
-                this.jProgressBar2.setValue((int) (this.jProgressBar2.getValue() + byUnitContribution));
+                this.progressBar.setValue((int) (this.progressBar.getValue() + byUnitContribution));
 
-                EncryptedOutputStream encryptedOut = new EncryptedOutputStream(fileOut, this.jPasswordField1.getPassword());
-                this.jProgressBar2.setValue((int) (this.jProgressBar2.getValue() + byUnitContribution));
+                EncryptedOutputStream encryptedOut = new EncryptedOutputStream(fileOut, this.pwdClePrivee.getPassword());
+                this.progressBar.setValue((int) (this.progressBar.getValue() + byUnitContribution));
 
                 BufferedOutputStream bufferedOut = new BufferedOutputStream(encryptedOut);
-                this.jProgressBar2.setValue((int) (this.jProgressBar2.getValue() + byUnitContribution));
+                this.progressBar.setValue((int) (this.progressBar.getValue() + byUnitContribution));
 
 
                 // On écrit dans un buffer pour la vitesse.
@@ -229,7 +213,7 @@ public class FramedEncryptor extends javax.swing.JFrame {
 
                     bufferedOut.write(byteData);
                 }
-                this.jProgressBar2.setValue((int) (this.jProgressBar2.getValue() + 5 * byUnitContribution));
+                this.progressBar.setValue((int) (this.progressBar.getValue() + 5 * byUnitContribution));
 
                 fileIn.close();
                 bufferedOut.flush();
@@ -250,24 +234,24 @@ public class FramedEncryptor extends javax.swing.JFrame {
 
         }
         jLabel3.setText("Encryption réussie !");
-        this.jButton1.setEnabled(true);
+        this.btnEncrypter.setEnabled(true);
 
 
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_btnEncrypterActionPerformed
 
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+    private void btnViderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViderActionPerformed
         jLabel3.setText("");
-    }//GEN-LAST:event_jButton4ActionPerformed
+    }//GEN-LAST:event_btnViderActionPerformed
 
-    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+    private void btnAjouterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAjouterActionPerformed
         // TODO code application logic here
         JFileChooser jfc = new JFileChooser();
         jfc.setMultiSelectionEnabled(true);
 
         jfc.showOpenDialog(this);
         filesSelection = jfc.getSelectedFiles();
-        this.jList1.setListData(jfc.getSelectedFiles());
-    }//GEN-LAST:event_jButton5ActionPerformed
+        this.listeFichierAEncrypter.setListData(jfc.getSelectedFiles());
+    }//GEN-LAST:event_btnAjouterActionPerformed
 
     /**
      * @param args the command line arguments
@@ -304,21 +288,17 @@ public class FramedEncryptor extends javax.swing.JFrame {
         });
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
+    private javax.swing.JButton btnAjouter;
+    private javax.swing.JButton btnEncrypter;
+    private javax.swing.JButton btnQuitter;
+    private javax.swing.JButton btnVider;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JList jList1;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPasswordField jPasswordField1;
-    private javax.swing.JProgressBar jProgressBar1;
-    private javax.swing.JProgressBar jProgressBar2;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JSlider jSlider1;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JLabel lblClePrivee;
+    private javax.swing.JLabel lblFichierAEncrypter;
+    private javax.swing.JList listeFichierAEncrypter;
+    private javax.swing.JProgressBar progressBar;
+    private javax.swing.JPasswordField pwdClePrivee;
     // End of variables declaration//GEN-END:variables
 }
