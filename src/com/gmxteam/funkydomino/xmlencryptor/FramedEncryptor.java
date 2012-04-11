@@ -48,6 +48,7 @@ public class FramedEncryptor extends javax.swing.JFrame {
         jTextField1 = new javax.swing.JTextField();
         jSlider1 = new javax.swing.JSlider();
         jButton3 = new javax.swing.JButton();
+        jProgressBar1 = new javax.swing.JProgressBar();
         jPanel1 = new javax.swing.JPanel();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
@@ -59,6 +60,7 @@ public class FramedEncryptor extends javax.swing.JFrame {
         jButton4 = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
+        jProgressBar2 = new javax.swing.JProgressBar();
 
         jTextField1.setText("jTextField1");
 
@@ -130,22 +132,23 @@ public class FramedEncryptor extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jButton5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addGroup(layout.createSequentialGroup()
-                                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(jButton1))
-                                .addComponent(jPasswordField1, javax.swing.GroupLayout.Alignment.TRAILING))
-                            .addComponent(jLabel2))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE))
+                        .addComponent(jButton5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel3)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(jProgressBar2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jLabel3)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jButton1))
+                                    .addComponent(jPasswordField1))
+                                .addComponent(jLabel2)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)))
                 .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -168,6 +171,8 @@ public class FramedEncryptor extends javax.swing.JFrame {
                                 .addComponent(jLabel2)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(6, 6, 6)
+                                .addComponent(jProgressBar2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(jButton2)
@@ -190,6 +195,10 @@ public class FramedEncryptor extends javax.swing.JFrame {
         if (this.filesSelection == null) {
             return;
         }
+        this.jProgressBar2.setValue(0);
+        double unitContribution = this.jProgressBar2.getMaximum() / filesSelection.length;
+        double byUnitContribution = unitContribution / 10;
+
 
         this.jButton1.setEnabled(false);
         for (File f : filesSelection) {
@@ -198,15 +207,20 @@ public class FramedEncryptor extends javax.swing.JFrame {
             try {
                 // Lire et encrypter les fichiers ici...
                 FileInputStream fileIn = new FileInputStream(f);
+                this.jProgressBar2.setValue((int) (this.jProgressBar2.getValue() + byUnitContribution));
 
                 File fileoutput = new File(f.getAbsolutePath() + ".enc");
                 fileoutput.createNewFile();
+                this.jProgressBar2.setValue((int) (this.jProgressBar2.getValue() + byUnitContribution));
 
                 FileOutputStream fileOut = new FileOutputStream(fileoutput);
+                this.jProgressBar2.setValue((int) (this.jProgressBar2.getValue() + byUnitContribution));
 
                 EncryptedOutputStream encryptedOut = new EncryptedOutputStream(fileOut, this.jPasswordField1.getPassword());
+                this.jProgressBar2.setValue((int) (this.jProgressBar2.getValue() + byUnitContribution));
 
                 BufferedOutputStream bufferedOut = new BufferedOutputStream(encryptedOut);
+                this.jProgressBar2.setValue((int) (this.jProgressBar2.getValue() + byUnitContribution));
 
 
                 // On écrit dans un buffer pour la vitesse.
@@ -215,6 +229,8 @@ public class FramedEncryptor extends javax.swing.JFrame {
 
                     bufferedOut.write(byteData);
                 }
+                this.jProgressBar2.setValue((int) (this.jProgressBar2.getValue() + 5 * byUnitContribution));
+
                 fileIn.close();
                 bufferedOut.flush();
                 bufferedOut.close();
@@ -299,6 +315,8 @@ public class FramedEncryptor extends javax.swing.JFrame {
     private javax.swing.JList jList1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPasswordField jPasswordField1;
+    private javax.swing.JProgressBar jProgressBar1;
+    private javax.swing.JProgressBar jProgressBar2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSlider jSlider1;
     private javax.swing.JTextField jTextField1;
