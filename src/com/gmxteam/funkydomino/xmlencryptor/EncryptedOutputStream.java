@@ -1,6 +1,18 @@
 /*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
+ *   This file is part of Funky Domino.
+ *
+ *   Funky Domino is free software: you can redistribute it and/or modify
+ *   it under the terms of the GNU General Public License as published by
+ *   the Free Software Foundation, either version 3 of the License, or
+ *   (at your option) any later version.
+ *
+ *   Funky Domino is distributed in the hope that it will be useful,
+ *   but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *   GNU General Public License for more details.
+ *
+ *   You should have received a copy of the GNU General Public License
+ *   along with Funky Domino.  If not, see <http://www.gnu.org/licenses/>.
  */
 package com.gmxteam.funkydomino.xmlencryptor;
 
@@ -14,7 +26,7 @@ import java.io.OutputStream;
  *
  * @author guillaume
  */
-public class EncryptedStream extends OutputStream {
+public class EncryptedOutputStream extends OutputStream {
 
     private final OutputStream stdout;
     private final String privatekey;
@@ -24,7 +36,7 @@ public class EncryptedStream extends OutputStream {
      * @param resourceStream
      * @param publicKey
      */
-    EncryptedStream(OutputStream resourceStream) {
+    EncryptedOutputStream(OutputStream resourceStream) {
         String tempKey = "";
         System.out.println("Please enter the private key in order to encrypt this stream");
         BufferedReader stdin = new BufferedReader(new InputStreamReader(System.in));
@@ -44,8 +56,8 @@ public class EncryptedStream extends OutputStream {
      * @param resourceStream
      * @param publicKey
      */
-    EncryptedStream(OutputStream resourceStream, String privateKey) {
-        this.privatekey = privateKey;
+    EncryptedOutputStream(OutputStream resourceStream, char[] privateKey) {
+        this.privatekey = new String(privateKey);
         stdout = resourceStream;
     }
 
