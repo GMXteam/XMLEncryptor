@@ -23,10 +23,13 @@ import javax.swing.JFileChooser;
 
 /**
  *
- * @author guillaume
+ * @author Guillaume Poirier-Morency
  */
 public class FramedEncryptor extends javax.swing.JFrame {
 
+    /**
+     * Fichiers sélectionnés qui seront encryptés.
+     */
     private File[] filesSelection;
 
     /**

@@ -25,7 +25,7 @@ import java.io.OutputStream;
  * Utilisé pour encrypter les fichiers XMLs. Seulement la méthode write est
  * recodée.
  *
- * @author guillaume
+ * @author Guillaume Poirier-Morency
  */
 public class EncryptedOutputStream extends OutputStream {
 
@@ -46,13 +46,12 @@ public class EncryptedOutputStream extends OutputStream {
         try {
             tempKey = stdin.readLine();
         } catch (IOException ex) {
+            // On niaise pas..
             System.exit(0);
-
         }
         privatekey = tempKey.toCharArray();
         tempKey = null;
         stdout = resourceStream;
-
     }
 
     /**
@@ -68,7 +67,7 @@ public class EncryptedOutputStream extends OutputStream {
 
     @Override
     public void write(int oneByte) throws IOException {
-        stdout.write(encryptOneInteger(oneByte));
+        this.write(this.intToByteArray(oneByte));
     }
 
     @Override
@@ -77,8 +76,6 @@ public class EncryptedOutputStream extends OutputStream {
             oneArrayByte[i] = encryptOneByte(oneArrayByte[i]);
         }
         stdout.write(oneArrayByte);
-                System.out.println("used");
-
     }
 
     @Override
@@ -88,7 +85,6 @@ public class EncryptedOutputStream extends OutputStream {
             oneArrayByte[iCounter] = encryptOneByte(oneArrayByte[iCounter]);
         }
         stdout.write(oneArrayByte, i, j);
-        System.out.println("used offset");
     }
 
     @Override
@@ -104,20 +100,40 @@ public class EncryptedOutputStream extends OutputStream {
     ////////////////////////////////////////////////////////////////////////////
     // Méthodes pour l'encryptage.
     /**
-     *
+     * L'encryption RSA se fait dans cette méthode.
      * @param b
      * @return
      */
     private byte encryptOneByte(byte b) {
+
         return b;
     }
 
     /**
+     * http://snippets.dzone.com/posts/show/93
      *
-     * @param i
+     * @param value
      * @return
      */
-    private int encryptOneInteger(int i) {
-        return i;
+    private byte[] intToByteArray(int value) {
+        return new byte[]{
+                    (byte) (value >>> 24),
+                    (byte) (value >>> 16),
+                    (byte) (value >>> 8),
+                    (byte) value};
+    }
+
+    /**
+     * http://snippets.dzone.com/posts/show/93. Pas besoin d'utiliser cette
+     * fonction, on a seulement besoin d'encrypter byte par byte.
+     *
+     * @param b
+     * @return
+     */
+    private int ByteArrayToInt(byte[] b) {
+        return (b[0] << 24)
+                + ((b[1] & 0xFF) << 16)
+                + ((b[2] & 0xFF) << 8)
+                + (b[3] & 0xFF);
     }
 }
