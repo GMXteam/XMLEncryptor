@@ -110,10 +110,11 @@ public class EncryptedOutputStream extends OutputStream {
     }
 
     /**
-     * http://snippets.dzone.com/posts/show/93
-     *
-     * @param value
-     * @return
+     * Convertit un entier en tableau de byte afin de centraliser l'encryption
+     * sur les bytes seulement.     * 
+     * Fonction trouvée sur : http://snippets.dzone.com/posts/show/93     *
+     * @param value est un entier qui sera convertit en tableau de byte,
+     * @return un tableau de byte.
      */
     private byte[] intToByteArray(int value) {
         return new byte[]{
