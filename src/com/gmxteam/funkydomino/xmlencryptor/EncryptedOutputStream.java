@@ -20,6 +20,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
+import java.math.BigInteger;
 
 /**
  * Utilisé pour encrypter les fichiers XMLs. Seulement la méthode write est
@@ -31,7 +32,13 @@ public class EncryptedOutputStream extends OutputStream {
 
     private final OutputStream stdout;
     private final char[] privatekey;
+    private RSA encryptor;
 
+    private void initRSA() {
+        
+        // On doit convertir la clé privée en BigInteger et la générer RSA.
+    }
+    
     /**
      * Constructeur pour le flux encrypté. Il demande d'entrer la clé privée en
      * entrée standard.
@@ -104,9 +111,8 @@ public class EncryptedOutputStream extends OutputStream {
      * @param b
      * @return
      */
-    private byte encryptOneByte(byte b) {
-
-        return b;
+    private byte encryptOneByte(byte b) {        
+        return encryptor.encrypt(b);
     }
 
     /**
