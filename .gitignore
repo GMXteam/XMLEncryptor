@@ -3,6 +3,8 @@ target/**
 bin/**
 doc/**
 gen/**
+build/**
+nbproject/private/**
 .DS_Store
 Thumbs.db
 gdb.setup
