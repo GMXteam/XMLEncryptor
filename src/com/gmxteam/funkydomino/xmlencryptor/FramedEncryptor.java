@@ -16,7 +16,7 @@
  */
 package com.gmxteam.funkydomino.xmlencryptor;
 
-import com.gmxteam.funkydomino.utils.xmlparser.encrypt.EncryptedOutputStream;
+import com.gmxteam.rsa.EncryptedOutputStream;
 import java.io.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
